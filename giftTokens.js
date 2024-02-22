@@ -1,15 +1,15 @@
 import { ethers, NonceManager } from "ethers";
-import fs from 'fs'
+import fs from "fs";
 
-import { config } from "dotenv"
-config()
+import { config } from "dotenv";
+config();
 
 function isNumber(inputAmount) {
-    const amount = Number(inputAmount)
-    return !isNaN(amount);
-  }
+  const amount = Number(inputAmount);
+  return !isNaN(amount);
+}
 
-const NUMBER_OF_TOKENS = process.argv[2]
+const NUMBER_OF_TOKENS = process.argv[2];
 if (!isNumber(NUMBER_OF_TOKENS)) {
   throw new Error(
     "Enter the number of token you want to gift e.g e.g node giftTokens.js 100"
@@ -17,21 +17,20 @@ if (!isNumber(NUMBER_OF_TOKENS)) {
 }
 
 if (Number(NUMBER_OF_TOKENS) < 1) {
-  throw new Error("number of tokens must be greater that 0")
+  throw new Error("number of tokens must be greater that 0");
 }
 
 const inputFile = process.argv[3] ?? process.env.DEFAULT_WINNERS_FILE;
 if (!inputFile) {
-  throw new Error("You need an input file with address e.g. node giftTokens.js 100 winners.csv")
+  throw new Error(
+    "You need an input file with address e.g. node giftTokens.js 100 winners.csv"
+  );
 }
 
-
-
 // Degen is the default type
-const CURRENT_TOKEN = 'DEGEN'
+const CURRENT_TOKEN = "DEGEN";
 const BASE_MAINNET_RPC = "https://mainnet.base.org/";
 const DEGEN_CONTRACT_ADDRESS = "0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed";
-
 
 /*
 Data structure to make this composable and accept multiple token types in future
@@ -43,17 +42,17 @@ const tokens = {
   },
 };
 
-const tokenDetails = tokens[CURRENT_TOKEN]
-const addresses = fs.readFileSync(inputFile, 'utf-8')
-const recepientss = addresses.split()
+const tokenDetails = tokens[CURRENT_TOKEN];
+const addresses = fs.readFileSync(inputFile, "utf-8");
+const recepientss = addresses.split();
 // console.log({ recepients: recepientss })
-console.log({ amount: NUMBER_OF_TOKENS, token: CURRENT_TOKEN})
+console.log({ amount: NUMBER_OF_TOKENS, token: CURRENT_TOKEN });
 
 // Account 4
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 
 if (!PRIVATE_KEY) {
-  throw new Error("Add you account private key to .env")
+  throw new Error("Add you account private key to .env");
 }
 
 const provider = new ethers.JsonRpcProvider(tokenDetails.mainnetRPC);
@@ -78,14 +77,14 @@ const tokenContractWithSigner = new ethers.Contract(
   signer
 );
 
-
 const amount = ethers.parseUnits(NUMBER_OF_TOKENS);
 for await (const address of recepients) {
-  console.log(`Sending ${NUMBER_OF_TOKENS} ${CURRENT_TOKEN} to ${address}`)
-  const result = await tokenContractWithSigner.transfer(address, amount).then(tx => tx.wait())
+  console.log(`Sending ${NUMBER_OF_TOKENS} ${CURRENT_TOKEN} to ${address}`);
+  const result = await tokenContractWithSigner
+    .transfer(address, amount)
+    .then((tx) => tx.wait());
   console.log(
     "Successful. View on Explorer",
     `https://basescan.org/tx/${result.hash}`
   );
 }
-
