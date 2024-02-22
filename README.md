@@ -9,7 +9,7 @@ This contains two scripts that enables tipping people that comment on a warpcast
 ## Getting Started
 - Clone this repo locally
 ```
-git clone https://github.com/Complexlity/gift-warpcast-commenters.git
+git clone https://github.com/Complexlity/tip-warpcast-commenters.git
 ```
 
 - Enter the directory
