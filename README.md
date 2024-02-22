@@ -3,7 +3,7 @@ This contains two scripts that enables tipping people that comment on a warpcast
 
 ## Pre-requisites
 - [node/npm](https://nodejs.org/en) installed on your machine. The version used for testing is 18.7.1 but should work with newer nodejs version as well
-- Private key of a wallet containing some etheruem (for cast) and [DEGEN](https://www.coingecko.com/en/coins/degen) tokens
+- Private key of a wallet containing some ETH  on base chain (for gas fees) and [DEGEN](https://www.coingecko.com/en/coins/degen) tokens
 
 
 ## Getting Started
