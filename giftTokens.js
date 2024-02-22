@@ -23,7 +23,7 @@ if (Number(NUMBER_OF_TOKENS) < 1) {
 const inputFile = process.argv[3] ?? process.env.DEFAULT_WINNERS_FILE;
 if (!inputFile) {
   throw new Error(
-    "You need an input file with address e.g. node giftTokens.js 100 winners.csv"
+    "You need an input file with addresses e.g. node giftTokens.js 100 winners.csv"
   );
 }
 
