@@ -22,6 +22,10 @@ try {
 
 const outputFile = process.argv[3] ?? process.env.DEFAULT_WINNERS_FILE;
 
+if (!outputFile) {
+  throw new Error('File missing. Add DEFAULT_WINNERS_FILE to env or pass file as an argument')
+}
+
 const { data: data, error } = await axios.get(
   "https://api.neynar.com/v2/farcaster/cast",
   {

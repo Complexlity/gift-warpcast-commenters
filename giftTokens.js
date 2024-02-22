@@ -44,7 +44,7 @@ const tokens = {
 
 const tokenDetails = tokens[CURRENT_TOKEN];
 const addresses = fs.readFileSync(inputFile, "utf-8");
-const recepientss = addresses.split();
+const recepients = addresses.split();
 // console.log({ recepients: recepientss })
 console.log({ amount: NUMBER_OF_TOKENS, token: CURRENT_TOKEN });
 
