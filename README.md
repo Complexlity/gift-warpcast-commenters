@@ -14,7 +14,7 @@ git clone https://github.com/Complexlity/tip-warpcast-commenters.git
 
 - Enter the directory
 ```
-cd gift-warpcast-commenters
+cd tip-warpcast-commenters
 ```
 
 - Install dependencies
