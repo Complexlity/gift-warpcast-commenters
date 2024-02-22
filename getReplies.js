@@ -39,7 +39,7 @@ const { data: data, error } = await axios.get(
   }
 );
 
-if (error && isAxiosError(error)) {
+if (error) {
   if (isAxiosError(error)) {
     throw new Error(error.message);
   } else throw new Error("Something went wrong fetching cast");
