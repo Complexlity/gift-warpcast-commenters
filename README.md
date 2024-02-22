@@ -36,7 +36,7 @@ EXCLUDE_THREAD_OWNER=true
 ```
 
 Go into the `.env` file and input you wallet private key.
-The other two variables are optional
+The other two variables can be left as is
 
 ## How to Use
 1. Get Replies For A warpcast Url
