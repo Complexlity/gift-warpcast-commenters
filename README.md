@@ -41,7 +41,7 @@ The other two variables are optional
 ## How to Use
 1. Get Replies For A warpcast Url
 ```
-node getReplies url output_file
+node getReplies <url> <output_file>
 ```
 
 `output_file` is optional and defaults to the `DEFAULT_WINNERS_FILE` in the .env
@@ -51,7 +51,7 @@ e.g `node getReplies https://warpcast.com/complexlity/0x2213bfa1 commenters.csv`
 2. Gift DEGENS to the commenters
 Currently, only degen is supported
 ```
-node giftTokens amount input_file
+node giftTokens <amount> <input_file>
 ```
 
 `input_file` is optional and defaults to the `DEFAULT_WINNERS_FILE` in the .env
