@@ -12,7 +12,7 @@ function isNumber(inputAmount) {
 const NUMBER_OF_TOKENS = process.argv[2];
 if (!isNumber(NUMBER_OF_TOKENS)) {
   throw new Error(
-    "Enter the number of token you want to gift e.g e.g node giftTokens.js 100"
+    "Enter the number of token you want to gift e.g node giftTokens.js 100"
   );
 }
 
@@ -45,10 +45,10 @@ const tokens = {
 const tokenDetails = tokens[CURRENT_TOKEN];
 const addresses = fs.readFileSync(inputFile, "utf-8");
 const recepients = addresses.split();
-// console.log({ recepients: recepientss })
+// console.log({ recepients })
 console.log({ amount: NUMBER_OF_TOKENS, token: CURRENT_TOKEN });
 
-// Account 4
+// Your wallet private key
 const PRIVATE_KEY = process.env.PRIVATE_KEY;
 
 if (!PRIVATE_KEY) {
